@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
+.imgupload__form {
+  margin: 30px auto 10px;
+  text-align: center;
+}
+
+.imgupload__form label {
+  display: block;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #07899296;
+  border-radius: 50%;
+  margin: 10px auto;
+  line-height: 50px;
+  color: #07899296;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.imgupload__form label:hover {
+  background: #05deee96;
+  color: white;
+  cursor: pointer;
+}
+
+.imgupload__form label input {
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+
+.imgupload__form label span {
+  cursor: pointer;
+}
+
+.imgupload__form div {
+  height: 60px;
+  font-size: 20px;
+}
+
+.imgupload__form div .error {
+  color: #ff4a4a;
+}
+/*# sourceMappingURL=style.css.map */

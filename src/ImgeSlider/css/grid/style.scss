@@ -1,0 +1,39 @@
+.imggrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    border: 4px solid rgb(0, 162, 255);
+    border-radius: 23px;
+    min-height: 100vh;
+    padding: 50px;
+    margin-top: 100px;
+    
+    &__wrap{
+        overflow: hidden;
+        height: 0;
+        padding: 50% 0;
+
+        /* padding controls height, will always be perfectly square regardless of width */
+        position: relative;
+        opacity: 0.8;
+  
+
+        img{
+            width: 70%;
+            height: 40%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+        }
+
+        i{
+            cursor: pointer;
+            position: absolute;
+            top: 1%;
+            left: 60%;
+            font-size: 30px;
+            color: rgb(247, 3, 36);
+        }
+    }
+}
+
