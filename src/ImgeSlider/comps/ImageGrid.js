@@ -54,15 +54,31 @@ function ImageGrid({setSelectedImg}) {
                 .map((doc,index) => (
                     <motion.div className='imggrid__wrap' key={doc.id} 
                     layout
-                    whileHover={{ scale: 1.1 }}
+                    // whileHover={{ scale: 1.1 }}
+                    whileHover={
+                        choose?
+                        { scale: 1.2, rotate: 10 }
+                    :
+                        { scale: 1.1 }
+                }
+
                     >
                     <img 
                     src={doc.url} 
                     alt='uploadimg' 
-                    onClick={() => setSelectedImg(index)}></img>
-                    {choose && <i className="fa fa-times-circle-o" 
-                    aria-hidden="true"
-                    onClick={()=> handleDel(doc.id)}></i>}
+                    onClick={choose? 
+                        ()=> handleDel(doc.id)
+                        :
+                        () => setSelectedImg(index)
+                        }>
+
+                    </img>
+                    {choose && 
+                    <i 
+                        className="fa fa-times-circle-o" 
+                        aria-hidden="true"
+                        onClick={()=> handleDel(doc.id)}>
+                    </i>}
                     </motion.div>
                 ))}
             </div>

@@ -65,9 +65,9 @@
 .grid .imggrid__wrap i {
   cursor: pointer;
   position: absolute;
-  top: 15%;
-  right: 15%;
-  font-size: 30px;
+  top: 25%;
+  right: 41%;
+  font-size: 100px;
   color: #f56709;
 }
 
