@@ -1,7 +1,7 @@
 import React from 'react'
 import useFirestore from '../hooks/useFireStore'
 import '../css/show/style.css'
-import {motion} from 'framer-motion'
+
 
 function ImageShow({selectedImg, setSelectedImg}) {
     const {docs} = useFirestore('images')
