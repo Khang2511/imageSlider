@@ -30,7 +30,7 @@ function ImageUploader() {
                     <input type="file" onChange={handleChange} />
                     <span>+</span>
                 </label>
-                <div className=''>
+                <div >
                     {error && <div className='error'>{error}</div>}
                     {file && <div>{file.name}</div>}
                     {file && 

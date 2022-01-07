@@ -1,39 +1,63 @@
-.imggrid{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    border: 4px solid rgb(0, 162, 255);
-    border-radius: 23px;
-    min-height: 100vh;
-    padding: 50px;
+.grid{
     margin-top: 100px;
-    
-    &__wrap{
-        overflow: hidden;
-        height: 0;
-        padding: 50% 0;
 
-        /* padding controls height, will always be perfectly square regardless of width */
-        position: relative;
-        opacity: 0.8;
-  
-
-        img{
-            width: 70%;
-            height: 40%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            cursor: pointer;
-        }
-
-        i{
-            cursor: pointer;
-            position: absolute;
-            top: 1%;
-            left: 60%;
-            font-size: 30px;
-            color: rgb(247, 3, 36);
+    .btn__trash{
+        margin: 20px;
+        font-size: 30px;
+        cursor: pointer;
+        color: rgb(245, 103, 9);
+        &:hover{
+            opacity: 0.8;
+            color: #FF5F6D;
         }
     }
-}
+    
 
+    .imggrid{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr ;
+        border:  1px transparent;
+        border-radius: 30px;
+        background-image: linear-gradient(rgb(10, 10, 10), rgb(10, 10, 10)), 
+          linear-gradient(to right, #FF5F6D, rgb(245, 103, 9)) ;
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+
+        padding: 5px;
+
+  
+
+        &__wrap{
+            overflow: hidden;
+            height: 0;
+            padding: 50% 0;
+            position: relative;
+            opacity: 0.8;
+      
+    
+            img{
+                width: 70%;
+                height: 40%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                cursor: pointer;
+                border: 2px solid ;
+                border-image: linear-gradient(to right, rgb(250, 250, 250), 
+                                            rgb(107, 104, 101)) 1;
+                margin: 15%;
+            }
+    
+            i{
+                cursor: pointer;
+                position: absolute;
+                top: 15%;
+                right: 15%;
+                font-size: 30px;
+                color: rgb(245, 103, 9);
+            }
+        }
+    }
+    
+    
+}

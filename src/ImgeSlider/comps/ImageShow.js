@@ -1,6 +1,7 @@
 import React from 'react'
 import useFirestore from '../hooks/useFireStore'
 import '../css/show/style.css'
+import {motion} from 'framer-motion'
 
 function ImageShow({selectedImg, setSelectedImg}) {
     const {docs} = useFirestore('images')
@@ -14,7 +15,7 @@ function ImageShow({selectedImg, setSelectedImg}) {
         setSelectedImg(selectedImg === 0 ? length-1 : selectedImg - 1 )
     }
     return (
-    <div className='imgshow' >
+    <div className='imgshow'   >
         <i className="fa fa-times imgshow__btn imgshow__btn--esc" aria-hidden="true" 
             onClick={e => setSelectedImg(null)}
         ></i>

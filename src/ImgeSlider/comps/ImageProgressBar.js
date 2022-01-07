@@ -14,7 +14,8 @@ function ImageProgressBar({file,setFile}) {
     }, [url, setFile])
     
     return (
-        <div className='progressbar'>Loading...
+        <div className='progressbar'>
+            <p>Loading...</p>
         <div></div><div></div><div></div><div></div>
         </div>
     )

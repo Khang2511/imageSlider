@@ -11,18 +11,18 @@
             display: block;
             width: 60px;
             height: 60px;
-            border: 1px solid #07899296;
+            border: 1px solid #FFC371;
             border-radius: 50%;
             margin: 10px auto;
             line-height: 50px;
-            color: #07899296;
+            color: #FFC371;
             font-weight: bold;
             font-size: 40px;
 
 
             &:hover{
-                background: #05deee96;
-                color: white;
+                background: #FF5F6D;
+                color: #FFC371;
                 cursor: pointer;
             }
 
@@ -42,7 +42,7 @@
             font-size: 20px;
 
             .error{
-                color: #ff4a4a;
+                color: #edfd0a;
             }
         }
     }

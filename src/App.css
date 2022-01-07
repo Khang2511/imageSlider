@@ -68,7 +68,7 @@ box-sizing: border-box;
 .fl_left{ float: left;}
 .fl_right{ float: right;}
 .App{
-  background-color: rgb(199, 221, 221);
+  background-color: rgb(5, 5, 5);
   min-height: 100vh;
   padding: 50px;
 }
