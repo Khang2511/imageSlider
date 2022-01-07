@@ -5,11 +5,27 @@
         margin: 20px;
         font-size: 30px;
         cursor: pointer;
-        color: rgb(245, 103, 9);
-        &:hover{
-            opacity: 0.8;
+        
+
+        &--on{
             color: #FF5F6D;
+
+            &:hover{
+                opacity: 0.8;
+                color: rgb(245, 103, 9);
+            }
         }
+        
+        &--off{
+            color: rgb(245, 103, 9);
+
+            &:hover{
+                opacity: 0.8;
+                color: #FF5F6D;
+            }
+        }
+
+        
     }
     
 
@@ -58,6 +74,36 @@
             }
         }
     }
-    
-    
+
+    .paginationBtn{
+        display: flex;
+        justify-content: center;
+        margin: 20px;
+        
+        a{
+            padding: 5px;
+            margin: 10px;
+            border-radius: 25px;
+            color: rgb(245, 103, 9);
+            cursor: pointer;
+            border: 2px solid rgb(245, 103, 9);
+
+            
+            &:hover{
+                color: #FF5F6D;
+                border: 2px solid #FF5F6D;;
+            }
+        }
+
+        
+        .paginationActive{
+            
+            a{
+                color: #FF5F6D;
+                border: 2px solid #FF5F6D;
+                background-color: rgb(250, 250, 250);
+            }
+        }
+        
+    }
 }

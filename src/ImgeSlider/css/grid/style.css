@@ -6,10 +6,22 @@
   margin: 20px;
   font-size: 30px;
   cursor: pointer;
+}
+
+.grid .btn__trash--on {
+  color: #FF5F6D;
+}
+
+.grid .btn__trash--on:hover {
+  opacity: 0.8;
   color: #f56709;
 }
 
-.grid .btn__trash:hover {
+.grid .btn__trash--off {
+  color: #f56709;
+}
+
+.grid .btn__trash--off:hover {
   opacity: 0.8;
   color: #FF5F6D;
 }
@@ -57,5 +69,35 @@
   right: 15%;
   font-size: 30px;
   color: #f56709;
+}
+
+.grid .paginationBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 20px;
+}
+
+.grid .paginationBtn a {
+  padding: 5px;
+  margin: 10px;
+  border-radius: 25px;
+  color: #f56709;
+  cursor: pointer;
+  border: 2px solid #f56709;
+}
+
+.grid .paginationBtn a:hover {
+  color: #FF5F6D;
+  border: 2px solid #FF5F6D;
+}
+
+.grid .paginationBtn .paginationActive a {
+  color: #FF5F6D;
+  border: 2px solid #FF5F6D;
+  background-color: #fafafa;
 }
 /*# sourceMappingURL=style.css.map */
