@@ -14,7 +14,7 @@
 
 .grid .btn__trash--on:hover {
   opacity: 0.8;
-  color: #f56709;
+  color: #FF5F6D;
 }
 
 .grid .btn__trash--off {
@@ -23,7 +23,7 @@
 
 .grid .btn__trash--off:hover {
   opacity: 0.8;
-  color: #FF5F6D;
+  color: #f56709;
 }
 
 .grid .imggrid {
@@ -43,31 +43,38 @@
 .grid .imggrid__wrap {
   overflow: hidden;
   height: 0;
-  padding: 50% 0;
+  padding: 40% 0;
   position: relative;
   opacity: 0.8;
 }
 
+.grid .imggrid__wrap--choose {
+  -webkit-animation: shake 0.5s;
+          animation: shake 0.5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
 .grid .imggrid__wrap img {
-  width: 70%;
-  height: 40%;
+  width: 80%;
+  height: 70%;
   position: absolute;
   top: 0;
-  left: 0;
+  left: -16px;
   cursor: pointer;
   border: 2px solid;
   -o-border-image: linear-gradient(to right, #fafafa, #6b6865) 1;
      border-image: -webkit-gradient(linear, left top, right top, from(#fafafa), to(#6b6865)) 1;
      border-image: linear-gradient(to right, #fafafa, #6b6865) 1;
-  margin: 15%;
+  margin: 10% 15%;
 }
 
 .grid .imggrid__wrap i {
   cursor: pointer;
   position: absolute;
-  top: 25%;
-  right: 41%;
-  font-size: 100px;
+  top: 8%;
+  right: 83%;
+  font-size: 50px;
   color: #f56709;
 }
 
@@ -81,23 +88,151 @@
   margin: 20px;
 }
 
-.grid .paginationBtn a {
-  padding: 5px;
-  margin: 10px;
+.grid .paginationBtn .next a {
+  padding: 5px 23px;
   border-radius: 25px;
+  border: 2px solid #f56709;
   color: #f56709;
   cursor: pointer;
+  width: 100px;
+}
+
+.grid .paginationBtn .next a:hover {
+  color: #FF5F6D;
+  border: 2px solid #FF5F6D;
+}
+
+.grid .paginationBtn .previous a {
+  border-radius: 25px;
+  padding: 5px 10px;
+  color: #f56709;
   border: 2px solid #f56709;
+  cursor: pointer;
+  width: 100px;
 }
 
-.grid .paginationBtn a:hover {
+.grid .paginationBtn .previous a:hover {
   color: #FF5F6D;
   border: 2px solid #FF5F6D;
 }
 
-.grid .paginationBtn .paginationActive a {
+.grid .paginationBtn li {
+  padding: 5px;
+  margin: 10px;
+  text-align: center;
+}
+
+.grid .paginationBtn li a {
+  border-radius: 25px;
+  padding: 5px 10px;
+  color: #f56709;
+  border: 2px solid #f56709;
+  cursor: pointer;
+  width: 100px;
+  text-align: center;
+}
+
+.grid .paginationBtn li a:hover {
   color: #FF5F6D;
   border: 2px solid #FF5F6D;
-  background-color: #fafafa;
+}
+
+.grid .paginationActive a {
+  background-color: #ffff;
+  color: #FF5F6D;
+}
+
+@-webkit-keyframes shake {
+  0% {
+    -webkit-transform: translate(1px, 1px) rotate(0deg);
+            transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    -webkit-transform: translate(-1px, -2px) rotate(-1deg);
+            transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    -webkit-transform: translate(-3px, 0px) rotate(1deg);
+            transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    -webkit-transform: translate(3px, 2px) rotate(0deg);
+            transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    -webkit-transform: translate(1px, -1px) rotate(1deg);
+            transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    -webkit-transform: translate(-1px, 2px) rotate(-1deg);
+            transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    -webkit-transform: translate(-3px, 1px) rotate(0deg);
+            transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    -webkit-transform: translate(3px, 1px) rotate(-1deg);
+            transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    -webkit-transform: translate(-1px, -1px) rotate(1deg);
+            transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    -webkit-transform: translate(1px, 2px) rotate(0deg);
+            transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translate(1px, -2px) rotate(-1deg);
+            transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+@keyframes shake {
+  0% {
+    -webkit-transform: translate(1px, 1px) rotate(0deg);
+            transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    -webkit-transform: translate(-1px, -2px) rotate(-1deg);
+            transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    -webkit-transform: translate(-3px, 0px) rotate(1deg);
+            transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    -webkit-transform: translate(3px, 2px) rotate(0deg);
+            transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    -webkit-transform: translate(1px, -1px) rotate(1deg);
+            transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    -webkit-transform: translate(-1px, 2px) rotate(-1deg);
+            transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    -webkit-transform: translate(-3px, 1px) rotate(0deg);
+            transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    -webkit-transform: translate(3px, 1px) rotate(-1deg);
+            transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    -webkit-transform: translate(-1px, -1px) rotate(1deg);
+            transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    -webkit-transform: translate(1px, 2px) rotate(0deg);
+            transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    -webkit-transform: translate(1px, -2px) rotate(-1deg);
+            transform: translate(1px, -2px) rotate(-1deg);
+  }
 }
 /*# sourceMappingURL=style.css.map */

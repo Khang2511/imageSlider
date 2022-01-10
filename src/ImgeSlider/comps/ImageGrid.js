@@ -9,6 +9,7 @@ function ImageGrid({setSelectedImg}) {
     const {docs} = useFirestore('images')
     const [choose,setChoose] = useState(false)
     const [pageNumber, setPageNumber] = useState(0)
+    
 
     const imagesPerPage = 9;
     const pageVisited = pageNumber * imagesPerPage;
@@ -17,24 +18,28 @@ function ImageGrid({setSelectedImg}) {
 
     function changePage({selected}){
         setPageNumber(selected)
+        console.log(pageNumber)
     };
 
     function handleChoose(){
         setChoose(!choose);
-        console.log(choose)
     }
 
     function handleDel(index){
-        projectFirestore.collection("images").doc(index).delete();
+        if (window.confirm("Delete this image ?")) {
+            projectFirestore.collection("images").doc(index).delete();
+          } 
+        
     }
-<i class="fa-light fa-trash-can-check"></i>
+
     return (
         <div className='grid'>
             <i className={choose? 
-            "fas fa-trash-alt btn__trash btn__trash--off" 
+            "fa fa-trash-o btn__trash btn__trash--off" 
                         :
-            "fas fa-trash-alt btn__trash btn__trash--on"
+            "fa fa-trash-o btn__trash btn__trash--on"
         } onClick={handleChoose}></i>
+
 
             <ReactPaginate 
                 previousLabel={"Previous"}
@@ -47,32 +52,36 @@ function ImageGrid({setSelectedImg}) {
                 disableClassName ={"paginationDisable"}
                 activeClassName = {"paginationActive"}
             />
+            
             <div className='imggrid'>
                 {docs && 
                 docs
                 .slice(pageVisited,pageVisited + imagesPerPage)
                 .map((doc,index) => (
-                    <motion.div className='imggrid__wrap' key={doc.id} 
+                    <motion.div className={choose? 'imggrid__wrap imggrid__wrap--choose':'imggrid__wrap'} key={doc.id} 
                     layout
-                    // whileHover={{ scale: 1.1 }}
+                    >
+                    <motion.img 
+                    src={doc.url} 
+                    alt={doc.name} 
                     whileHover={
                         choose?
-                        { scale: 1.2, rotate: 10 }
+                        { 
+
+                        }
                     :
                         { scale: 1.1 }
-                }
+                    }
 
-                    >
-                    <img 
-                    src={doc.url} 
-                    alt='uploadimg' 
+                    initial ={{opacity:0}}
+                    animate={{opacity:1}}
                     onClick={choose? 
                         ()=> handleDel(doc.id)
                         :
                         () => setSelectedImg(index)
                         }>
-
-                    </img>
+                    
+                    </motion.img>
                     {choose && 
                     <i 
                         className="fa fa-times-circle-o" 
@@ -82,17 +91,7 @@ function ImageGrid({setSelectedImg}) {
                     </motion.div>
                 ))}
             </div>
-                <ReactPaginate 
-                previousLabel={"Previous"}
-                nextLabel={"Next"}
-                pageCount={pageCount}
-                onPageChange={changePage}
-                containerClassName={"paginationBtn"}
-                prevLinkClassName={"prevBtn"}
-                nextLinkClassName={"nextBtn"}
-                disableClassName ={"paginationDisable"}
-                activeClassName = {"paginationActive"}
-            />
+            
         </div>
     )
 }
