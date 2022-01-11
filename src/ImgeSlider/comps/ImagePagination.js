@@ -20,7 +20,7 @@ export default class ImagePagination extends React.Component {
       if (this.props.currentPage < 3) {
         this.setState({ firstThreeArray: [1, 2, 3] });
       } else {
-        var fArray = [];
+        fArray = [];
         var index = 1;
         for (let j = this.props.currentPage; j >= 0; j--) {
           fArray.push(j);
@@ -52,16 +52,16 @@ export default class ImagePagination extends React.Component {
         if (nextProps.currentPage < 3) {
           this.setState({ firstThreeArray: [1, 2, 3] });
         } else {
-          var fArray = [];
+          fArray = [];
           fArray.push(nextProps.currentPage - 1);
           fArray.push(nextProps.currentPage);
           if (nextProps.currentPage + 1 < nextProps.totalPages) {
             fArray.push(nextProps.currentPage + 1);
           }
           if (
-            nextProps.currentPage == nextProps.totalPages - 2 ||
-            nextProps.currentPage == nextProps.totalPages - 1 ||
-            nextProps.currentPage == nextProps.totalPages
+            nextProps.currentPage === nextProps.totalPages - 2 ||
+            nextProps.currentPage === nextProps.totalPages - 1 ||
+            nextProps.currentPage === nextProps.totalPages
           ) {
             this.setState({ showEllipis: false });
           } else {
@@ -89,14 +89,14 @@ export default class ImagePagination extends React.Component {
   showEllipsis = () => {
     if (this.state.showEllipis) {
       return (
-        <a>
+        <i>
           <li>...</li>
-        </a>
+        </i>
       );
     }
   };
   isactive = currentPage => {
-    if (this.props.currentPage == currentPage) {
+    if (this.props.currentPage === currentPage) {
       return true;
     }
     return false;
@@ -104,32 +104,32 @@ export default class ImagePagination extends React.Component {
   showLastPagi = () => {
     if (this.props.currentPage !== this.props.totalPages) {
       return (
-        <a
+        <i
           className={this.isactive(this.props.totalPages) ? "is-active" : ""}
           onClick={() => {
             this.changeCurrentPage(this.props.totalPages);
           }}
         >
           <li>{this.props.totalPages}</li>
-        </a>
+        </i>
       );
     }
   };
   showPrev = () => {
-
+    
       return (
-        <a className="prev" onClick={this.prev}>
+        <i className={this.props.currentPage !== 1? "prev":"prev none"} onClick={this.prev}>
           <li>{"Prev"}</li>
-        </a>
+        </i>
       );
 
   };
   showNext = () => {
 
       return (
-        <a className="next" onClick={this.next}>
+        <i className={this.props.currentPage < this.props.totalPages?"next":"next none"} onClick={this.next}>
           <li>{"Next"}</li>
-        </a>
+        </i>
       );
 
   };
@@ -142,7 +142,7 @@ export default class ImagePagination extends React.Component {
           {this.props.totalPages <= 5 ? (
             this.state.firstThreeArray.map((no, index) => {
               return (
-                <a
+                <i
                   key={index}
                   className={this.isactive(no) ? "is-active" : ""}
                   onClick={() => {
@@ -150,14 +150,14 @@ export default class ImagePagination extends React.Component {
                   }}
                 >
                   <li>{no}</li>
-                </a>
+                </i>
               );
             })
           ) : (
             <React.Fragment>
               {this.state.firstThreeArray.map((no, index) => {
                 return (
-                  <a
+                  <i
                     key={index}
                     className={this.isactive(no) ? "is-active" : ""}
                     onClick={() => {
@@ -165,7 +165,7 @@ export default class ImagePagination extends React.Component {
                     }}
                   >
                     <li>{no}</li>
-                  </a>
+                  </i>
                 );
               })}
               {this.showEllipsis()}

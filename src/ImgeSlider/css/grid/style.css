@@ -87,7 +87,7 @@
           justify-content: center;
 }
 
-.grid .pagination a {
+.grid .pagination i {
   padding: 5px;
   margin: 0px 20px;
   border-radius: 25px;
@@ -98,9 +98,24 @@
   text-align: center;
 }
 
-.grid .pagination a:hover {
+.grid .pagination i li {
+  font-style: normal;
+}
+
+.grid .pagination i:hover {
   color: #FF5F6D;
   border: 2px solid #FF5F6D;
+}
+
+.grid .pagination .none {
+  opacity: 0;
+  cursor: context-menu;
+}
+
+.grid .pagination ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .grid .pagination .is-active {

@@ -82,7 +82,7 @@
         display: flex;
         justify-content: center;
 
-        a{
+        i{
             padding: 5px ;
             margin: 0px 20px;
             border-radius: 25px;
@@ -92,10 +92,24 @@
             width: 50px;
             text-align: center;
 
+            li{
+                font-style: normal;
+            }
+
             &:hover{
                 color: #FF5F6D;
                 border: 2px solid #FF5F6D;;
             }
+        }
+
+        .none{
+            opacity: 0;
+            cursor: context-menu;
+        }
+
+        ul{
+            display: flex;
+
         }
 
         .is-active{
@@ -112,72 +126,7 @@
             width: 100px;
         }
     }
-    // .paginationBtn{
-    //     display: flex;
-    //     justify-content: center;
-    //     margin: 20px;
 
-//         .next{
-//             a{
-//             padding: 5px 23px;
-//             border-radius: 25px;
-//             border: 2px solid rgb(245, 103, 9);
-//             color: rgb(245, 103, 9);
-//             cursor: pointer;
-//             width: 100px;
-
-//             &:hover{
-//                 color: #FF5F6D;
-//                 border: 2px solid #FF5F6D;;
-//             }
-//             }
-//         }
-//         .previous{
-//             a{
-//                 border-radius: 25px;
-//                 padding: 5px 10px;
-//                 color: rgb(245, 103, 9);
-//                 border: 2px solid rgb(245, 103, 9);
-//                 cursor: pointer;
-//                 width: 100px;
-    
-//                 &:hover{
-//                     color: #FF5F6D;
-//                     border: 2px solid #FF5F6D;;
-//                 }
-//             }
-//         }
-
-//         li{
-            
-//             padding: 5px;
-//             margin: 10px;
-//             text-align: center;
-
-//             a{
-//                 border-radius: 25px;
-//                 padding: 5px 10px;
-//                 color: rgb(245, 103, 9);
-//                 border: 2px solid rgb(245, 103, 9);
-//                 cursor: pointer;
-//                 width: 100px;
-//                 text-align: center;
-    
-//                 &:hover{
-//                     color: #FF5F6D;
-//                     border: 2px solid #FF5F6D;;
-//                 }
-//             }
-//         }
-//  }
-
-//         .paginationActive{
-            
-//             a{
-//                 background-color: #ffff;
-//                 color: #FF5F6D;    
-//             }
-//         }
     
 }
 
