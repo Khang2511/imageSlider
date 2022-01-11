@@ -4,7 +4,10 @@ import useFirestore from '../hooks/useFireStore'
 import '../css/grid/style.css'
 import { projectFirestore } from '../firebase/config';
 import {motion} from 'framer-motion'
-import ReactPaginate from 'react-paginate';
+
+import "react-pagination-library/build/css/index.css";
+import ImagePagination from './ImagePagination';
+
 function ImageGrid({setSelectedImg}) {
     const {docs} = useFirestore('images')
     const [choose,setChoose] = useState(false)
@@ -16,9 +19,9 @@ function ImageGrid({setSelectedImg}) {
 
     const pageCount = Math.ceil(docs.length/imagesPerPage);
 
-    function changePage({selected}){
-        setPageNumber(selected)
-        console.log(pageNumber)
+    function changePage(selected){
+        setPageNumber(selected-1)
+        console.log(selected)
     };
 
     function handleChoose(){
@@ -40,7 +43,15 @@ function ImageGrid({setSelectedImg}) {
             "fa fa-trash-o btn__trash btn__trash--on"
         } onClick={handleChoose}></i>
 
+        
+        <ImagePagination
+          currentPage={pageNumber+1}
+          totalPages={pageCount}
+          changeCurrentPage={changePage}
+          theme="default"
+        />
 
+{/* 
             <ReactPaginate 
                 previousLabel={"Previous"}
                 nextLabel={"Next"}
@@ -52,7 +63,7 @@ function ImageGrid({setSelectedImg}) {
                 disableClassName ={"paginationDisable"}
                 activeClassName = {"paginationActive"}
             />
-            
+             */}
             <div className='imggrid'>
                 {docs && 
                 docs
@@ -91,7 +102,12 @@ function ImageGrid({setSelectedImg}) {
                     </motion.div>
                 ))}
             </div>
-            
+            <ImagePagination
+          currentPage={pageNumber+1}
+          totalPages={pageCount}
+          changeCurrentPage={changePage}
+          theme="bottom-border"
+        />
         </div>
     )
 }

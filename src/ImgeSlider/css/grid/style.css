@@ -78,68 +78,43 @@
   color: #f56709;
 }
 
-.grid .paginationBtn {
+.grid .pagination {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 20px;
 }
 
-.grid .paginationBtn .next a {
-  padding: 5px 23px;
-  border-radius: 25px;
-  border: 2px solid #f56709;
-  color: #f56709;
-  cursor: pointer;
-  width: 100px;
-}
-
-.grid .paginationBtn .next a:hover {
-  color: #FF5F6D;
-  border: 2px solid #FF5F6D;
-}
-
-.grid .paginationBtn .previous a {
-  border-radius: 25px;
-  padding: 5px 10px;
-  color: #f56709;
-  border: 2px solid #f56709;
-  cursor: pointer;
-  width: 100px;
-}
-
-.grid .paginationBtn .previous a:hover {
-  color: #FF5F6D;
-  border: 2px solid #FF5F6D;
-}
-
-.grid .paginationBtn li {
+.grid .pagination a {
   padding: 5px;
-  margin: 10px;
-  text-align: center;
-}
-
-.grid .paginationBtn li a {
+  margin: 0px 20px;
   border-radius: 25px;
-  padding: 5px 10px;
-  color: #f56709;
   border: 2px solid #f56709;
+  color: #f56709;
   cursor: pointer;
-  width: 100px;
+  width: 50px;
   text-align: center;
 }
 
-.grid .paginationBtn li a:hover {
+.grid .pagination a:hover {
   color: #FF5F6D;
   border: 2px solid #FF5F6D;
 }
 
-.grid .paginationActive a {
-  background-color: #ffff;
+.grid .pagination .is-active {
   color: #FF5F6D;
+  border: 2px solid #FF5F6D;
+}
+
+.grid .pagination .is-active li {
+  font-weight: 700;
+  border: none;
+}
+
+.grid .pagination .next, .grid .pagination .prev {
+  width: 100px;
 }
 
 @-webkit-keyframes shake {
