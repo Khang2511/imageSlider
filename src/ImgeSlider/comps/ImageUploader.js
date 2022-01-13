@@ -13,8 +13,6 @@ function ImageUploader() {
         e.preventDefault();
         let selected = e.target.files[0];
 
-        console.log(file)
-        console.log(selected)
         if (selected && types.includes(selected.type)) {
             setFile(selected);
             setError('')

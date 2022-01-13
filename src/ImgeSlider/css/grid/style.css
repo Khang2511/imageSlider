@@ -38,6 +38,7 @@
   background-origin: border-box;
   background-clip: content-box, border-box;
   padding: 5px;
+  min-height: 100vh;
 }
 
 .grid .imggrid__wrap {
@@ -67,6 +68,8 @@
      border-image: -webkit-gradient(linear, left top, right top, from(#fafafa), to(#6b6865)) 1;
      border-image: linear-gradient(to right, #fafafa, #6b6865) 1;
   margin: 10% 15%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .grid .imggrid__wrap i {

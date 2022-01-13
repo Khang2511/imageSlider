@@ -8,16 +8,23 @@ import ImageShow from './ImgeSlider/comps/ImageShow';
 
 function App() {
   const [selectedImg, setSelectedImg] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   return (
     <div className="App">
       <ImageSlider/>
       <ImageUploader/>
-      <ImageGrid setSelectedImg={setSelectedImg}/>
-      {selectedImg !== null && 
+      <ImageGrid 
+      setSelectedImg={setSelectedImg}
+      setSelectedIndex={setSelectedIndex}
+      />
+      {selectedImg !== null && selectedIndex !==null &&
       <ImageShow 
       selectedImg={selectedImg} 
-      setSelectedImg={setSelectedImg}/>}
+      setSelectedImg={setSelectedImg}
+      selectedIndex={selectedIndex}
+      setSelectedIndex={setSelectedIndex}
+      />}
     </div>
   );
 }
