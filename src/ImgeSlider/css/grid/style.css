@@ -47,6 +47,8 @@
   padding: 40% 0;
   position: relative;
   opacity: 0.8;
+  -webkit-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .grid .imggrid__wrap--choose {
@@ -90,7 +92,7 @@
           justify-content: center;
 }
 
-.grid .pagination i {
+.grid .pagination a {
   padding: 5px;
   margin: 0px 20px;
   border-radius: 25px;
@@ -101,11 +103,11 @@
   text-align: center;
 }
 
-.grid .pagination i li {
+.grid .pagination a li {
   font-style: normal;
 }
 
-.grid .pagination i:hover {
+.grid .pagination a:hover {
   color: #FF5F6D;
   border: 2px solid #FF5F6D;
 }
@@ -129,10 +131,6 @@
 .grid .pagination .is-active li {
   font-weight: 700;
   border: none;
-}
-
-.grid .pagination .next, .grid .pagination .prev {
-  width: 100px;
 }
 
 @-webkit-keyframes shake {

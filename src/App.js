@@ -5,6 +5,8 @@ import ImageSlider from './ImgeSlider/comps/ImageSlider';
 import ImageUploader from './ImgeSlider/comps/ImageUploader';
 import ImageGrid from './ImgeSlider/comps/ImageGrid';
 import ImageShow from './ImgeSlider/comps/ImageShow';
+import ImageLoading from './ImgeSlider/comps/ImageLoading';
+
 
 function App() {
   const [selectedImg, setSelectedImg] = useState(null);
@@ -12,6 +14,7 @@ function App() {
 
   return (
     <div className="App">
+      <ImageLoading></ImageLoading>
       <ImageSlider/>
       <ImageUploader/>
       <ImageGrid 

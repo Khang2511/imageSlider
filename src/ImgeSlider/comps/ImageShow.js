@@ -2,21 +2,51 @@ import React from 'react'
 import useFirestore from '../hooks/useFireStore'
 import '../css/show/style.css'
 import {motion} from 'framer-motion'
+import { useState } from 'react'
+
+const variants = {
+    enter: (direction) => {
+      return {
+        x: direction > 0 ? 1000 : -1000,
+        opacity: 0
+      };
+    },
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction) => {
+      return {
+        zIndex: 0,
+        x: direction < 0 ? 1000 : -1000,
+        opacity: 0
+      };
+    }
+  };
 
 function ImageShow({selectedImg, setSelectedImg, selectedIndex, setSelectedIndex}) {
     const {docs} = useFirestore('images')
     const length = docs.length;
-    console.log(selectedIndex)
+    const [loaded,setLoaded] = useState(false)
+  
+  const showImage = () => {
+    setLoaded(false)
+    
+  }
+
 
     function handleNext(){
         setSelectedIndex(selectedIndex === length-1? 0 :selectedIndex + 1 )
-        setSelectedImg(docs[selectedIndex].url)
+        setLoaded(true)
     }
 
     function handlePrev(){
         setSelectedIndex(selectedIndex === 0 ? length-1 : selectedIndex - 1 )
-        setSelectedImg(docs[selectedIndex].url)
+        setLoaded(true)
     }
+
+    console.log(loaded)
     return (
     <div className='imgshow'   >
         <div onClick={e => setSelectedImg(null)} className='imgshow__off'>
@@ -26,12 +56,26 @@ function ImageShow({selectedImg, setSelectedImg, selectedIndex, setSelectedIndex
                 <motion.div
                 className='imgshow__wrap' 
                 key={doc.id}>
-                    {doc.url === selectedImg &&
-                    <motion.img src={selectedImg} 
-                    initial={{ opacity:0}}
-                    animate={{opacity:1 }}
+                    {index === selectedIndex &&
+                    <div>
+                        <motion.img 
+                        onLoad={showImage} 
+    
+                        src={loaded?  'https://cdn.dribbble.com/users/200146/screenshots/4923970/loading__.gif':doc.url } 
+                        variants={variants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        transition={{
+                        x: { type: "spring", stiffness: 200, damping: 70 },
+                        opacity: { duration: 1 }
+                    }}
+                        alt='upload pic'/> 
 
-                    alt='upload pic'></motion.img> }
+                        {console.log(loaded)}                       
+                    </div>
+                    }
+                  
                 </motion.div>
             ))}
 

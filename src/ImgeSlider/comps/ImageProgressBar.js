@@ -5,7 +5,7 @@ import '../css/progress/style.css'
 
 function ImageProgressBar({file,setFile}) {
     const {url, progress} = useStorage(file);
-    console.log(progress,url);
+
 
     useEffect(() => {
         if(url){

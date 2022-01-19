@@ -40,6 +40,16 @@
      object-fit: contain;
 }
 
+.imgshow__wrap .loaded {
+  display: none;
+}
+
+.imgshow__wrap .loaded--done {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .imgshow__prev {
   height: 100%;
   width: 10%;

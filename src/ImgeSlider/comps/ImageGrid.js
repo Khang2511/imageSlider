@@ -4,19 +4,18 @@ import useFirestore from '../hooks/useFireStore'
 import '../css/grid/style.css'
 import { projectFirestore } from '../firebase/config';
 import {motion} from 'framer-motion'
-
+import Pagination from "react-pagination-library";
 import "react-pagination-library/build/css/index.css";
-import ImagePagination from './ImagePagination';
+
 
 function ImageGrid({setSelectedImg ,setSelectedIndex}) {
     const {docs} = useFirestore('images')
     const [choose,setChoose] = useState(false)
     const [pageNumber, setPageNumber] = useState(0)
-    
+
 
     const imagesPerPage = 9;
     const pageVisited = pageNumber * imagesPerPage;
-
     const pageCount = Math.ceil(docs.length/imagesPerPage);
 
     function changePage(selected){
@@ -39,7 +38,7 @@ function ImageGrid({setSelectedImg ,setSelectedIndex}) {
             handleDel(id)
         else
             {
-                setSelectedIndex(index)
+                setSelectedIndex(index + imagesPerPage*pageNumber)
                 setSelectedImg(url)
             }
     }
@@ -63,13 +62,13 @@ function ImageGrid({setSelectedImg ,setSelectedIndex}) {
         }
             
         
-        
-        
-        <ImagePagination
+
+        <Pagination
           currentPage={pageNumber+1}
           totalPages={pageCount}
           changeCurrentPage={changePage}
           theme="default"
+
         />
 
             <div className='imggrid'>
@@ -77,7 +76,9 @@ function ImageGrid({setSelectedImg ,setSelectedIndex}) {
                 docs
                 .slice(pageVisited,pageVisited + imagesPerPage)
                 .map((doc,index) => (
-                    <motion.div className={choose? 'imggrid__wrap imggrid__wrap--choose':'imggrid__wrap'} key={doc.id} 
+                    <motion.div 
+                    className={choose? 'imggrid__wrap imggrid__wrap--choose':'imggrid__wrap'} 
+                    key={doc.id} 
                     layout
                     initial={{opacity: 0}}
                     animate={{opacity: 1}}
@@ -85,7 +86,8 @@ function ImageGrid({setSelectedImg ,setSelectedIndex}) {
                     <motion.img 
                     initial={{opacity: 0}}
                     animate={{opacity: 1}}
-                    src={doc.url} 
+                    transition={{opacity: { duration: 4 }}}
+                    src={doc.url }
                     alt={doc.name} 
                     whileHover={
                         choose?
@@ -96,8 +98,6 @@ function ImageGrid({setSelectedImg ,setSelectedIndex}) {
                         { scale: 1.1 }
                     }
 
-                    initial ={{opacity:0}}
-                    animate={{opacity:1}}
                     onClick={()=> handleShow(doc.url,doc.id,index)
                         }>
                     
@@ -111,11 +111,11 @@ function ImageGrid({setSelectedImg ,setSelectedIndex}) {
                     </motion.div>
                 ))}
             </div>
-            <ImagePagination
+            <Pagination
           currentPage={pageNumber+1}
           totalPages={pageCount}
           changeCurrentPage={changePage}
-          theme="bottom-border"
+          theme="default"
         />
         </div>
     )

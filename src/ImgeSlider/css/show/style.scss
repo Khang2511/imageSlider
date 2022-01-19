@@ -25,12 +25,18 @@
             max-height: 740px;
             min-width: 700px;
             min-height: 620px;
-
             object-fit: cover;
             margin: 60px auto;
             box-shadow: 3px 5px 7px rgba(0,0,0,0.5);
             border: 3px solid white;
             object-fit: contain;
+        }
+        .loaded{
+            display: none;
+          }
+
+        .loaded--done{
+            display: flex;
         }
     }
 

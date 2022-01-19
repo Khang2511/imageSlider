@@ -40,15 +40,15 @@
         background-clip: content-box, border-box;
         padding: 5px;
         min-height: 100vh;
-
   
-
         &__wrap{
             overflow: hidden;
             height: 0;
             padding: 40% 0;
             position: relative;
             opacity: 0.8;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
             &--choose {
                 animation: shake 0.5s;
@@ -84,7 +84,7 @@
         display: flex;
         justify-content: center;
 
-        i{
+        a{
             padding: 5px ;
             margin: 0px 20px;
             border-radius: 25px;
@@ -123,13 +123,7 @@
                 border: none;
             }
         }
-        
-        .next, .prev{
-            width: 100px;
-        }
     }
-
-    
 }
 
 
