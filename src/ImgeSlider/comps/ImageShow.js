@@ -25,15 +25,14 @@ const variants = {
     }
   };
 
-function ImageShow({selectedImg, setSelectedImg, selectedIndex, setSelectedIndex}) {
+function ImageShow({setSelectedImg, selectedIndex, setSelectedIndex}) {
     const {docs} = useFirestore('images')
     const length = docs.length;
     const [loaded,setLoaded] = useState(false)
   
-  const handleLoaded = () => {
-    setLoaded(false)
-  }
-
+    function handleLoaded () {
+      setLoaded(false)
+    }
 
     function handleNext(){
         setSelectedIndex(selectedIndex === length-1? 0 :selectedIndex + 1 )
@@ -47,8 +46,9 @@ function ImageShow({selectedImg, setSelectedImg, selectedIndex, setSelectedIndex
 
     return (
     <div className='imgshow'   >
-        <div onClick={e => setSelectedImg(null)} className='imgshow__off'>
-
+        <div onClick={e => setSelectedImg(null)} 
+            className='imgshow__off'
+        >
             {docs && 
             docs.map((doc,index) => (
                 <motion.div
@@ -58,25 +58,22 @@ function ImageShow({selectedImg, setSelectedImg, selectedIndex, setSelectedIndex
                     <div>
                         <motion.img 
                         onLoad={handleLoaded} 
-    
                         src={loaded?  'https://cdn.dribbble.com/users/200146/screenshots/4923970/loading__.gif':doc.url } 
                         variants={variants}
                         initial="enter"
                         animate="center"
                         exit="exit"
                         transition={{
-                        x: { type: "spring", stiffness: 200, damping: 70 },
+                        x: { type: "spring", 
+                            stiffness: 200, 
+                            damping: 70 },
                         opacity: { duration: 1 }
-                    }}
+                        }}
                         alt='upload pic'/> 
-
-                 
                     </div>
                     }
-                  
                 </motion.div>
             ))}
-
         </div>
         <div 
             className='imgshow__prev'
@@ -100,8 +97,6 @@ function ImageShow({selectedImg, setSelectedImg, selectedIndex, setSelectedIndex
             >
         </i>
         </div>
-        
-        
     </div>
     )
 }
