@@ -1,4 +1,3 @@
-
 import './App.css';
 import { useState } from 'react';
 import ImageSlider from './ImgeSlider/comps/ImageSlider';
@@ -6,7 +5,6 @@ import ImageUploader from './ImgeSlider/comps/ImageUploader';
 import ImageGrid from './ImgeSlider/comps/ImageGrid';
 import ImageShow from './ImgeSlider/comps/ImageShow';
 import ImageLoading from './ImgeSlider/comps/ImageLoading';
-
 
 function App() {
   const [selectedImg, setSelectedImg] = useState(null);
@@ -23,7 +21,6 @@ function App() {
       />
       {selectedImg !== null && selectedIndex !==null &&
       <ImageShow 
-      selectedImg={selectedImg} 
       setSelectedImg={setSelectedImg}
       selectedIndex={selectedIndex}
       setSelectedIndex={setSelectedIndex}

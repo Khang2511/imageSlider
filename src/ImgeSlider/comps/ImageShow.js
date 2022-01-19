@@ -30,9 +30,8 @@ function ImageShow({selectedImg, setSelectedImg, selectedIndex, setSelectedIndex
     const length = docs.length;
     const [loaded,setLoaded] = useState(false)
   
-  const showImage = () => {
+  const handleLoaded = () => {
     setLoaded(false)
-    
   }
 
 
@@ -46,7 +45,6 @@ function ImageShow({selectedImg, setSelectedImg, selectedIndex, setSelectedIndex
         setLoaded(true)
     }
 
-    console.log(loaded)
     return (
     <div className='imgshow'   >
         <div onClick={e => setSelectedImg(null)} className='imgshow__off'>
@@ -59,7 +57,7 @@ function ImageShow({selectedImg, setSelectedImg, selectedIndex, setSelectedIndex
                     {index === selectedIndex &&
                     <div>
                         <motion.img 
-                        onLoad={showImage} 
+                        onLoad={handleLoaded} 
     
                         src={loaded?  'https://cdn.dribbble.com/users/200146/screenshots/4923970/loading__.gif':doc.url } 
                         variants={variants}
@@ -72,7 +70,7 @@ function ImageShow({selectedImg, setSelectedImg, selectedIndex, setSelectedIndex
                     }}
                         alt='upload pic'/> 
 
-                        {console.log(loaded)}                       
+                 
                     </div>
                     }
                   

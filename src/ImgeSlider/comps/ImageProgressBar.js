@@ -4,8 +4,7 @@ import {useEffect} from 'react'
 import '../css/progress/style.css'
 
 function ImageProgressBar({file,setFile}) {
-    const {url, progress} = useStorage(file);
-
+    const {url} = useStorage(file);
 
     useEffect(() => {
         if(url){
